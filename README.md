@@ -33,7 +33,6 @@ A Front & Backend UI base for push notification feature in Android App.
       }```
 
 - Start `NotificationActivity` whenever user want to view notifications
-```Intent intent=new Intent(this, NotificationActivity.class);
-   startActivity(intent);```
-
-
+  ```
+  Intent intent=new Intent(this, NotificationActivity.class);
+  startActivity(intent);```
