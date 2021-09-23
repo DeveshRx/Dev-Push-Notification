@@ -1,6 +1,6 @@
 # Dev Push Notification
 
-A Front & Backend UI base for push notification feature in Android App.
+A Front UI & Backend base for push notification feature in Android App.
 
 ## Features
 
