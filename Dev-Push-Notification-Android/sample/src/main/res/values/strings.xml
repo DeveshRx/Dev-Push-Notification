@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Sample</string>
+    <string name="msg_token_fmt" translatable="false">%s</string>
+
+</resources>

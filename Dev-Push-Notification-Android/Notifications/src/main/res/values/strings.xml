@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="DATABASE_NOTIFICATION">notificationsdata.db</string>
+    <string name="notification_channel_id_general">generalnotification</string>
+
+    <!-- types of notifications -->
+    <string name="NOTIFICATION_NORMAL">notification</string>
+    <string name="NOTIFICATION_APP_UPDATE">app_update</string>
+
+
+    <string name="NOTIFICATION_OPEN_ACTIVITY_INTENT_NAME">devesh_message</string>
+
+    <string name="NOTIFICATION_TITLE">title</string>
+    <string name="NOTIFICATION_SHORT_SUMMARY">short_summary</string>
+    <string name="NOTIFICATION_LONG_SUMMARY">long_summary</string>
+    <string name="NOTIFICATION_ICON">icon</string>
+    <string name="NOTIFICATION_IMG">img</string>
+    <string name="NOTIFICATION_URL">url</string>
+    <string name="NOTIFICATION_ID">id</string>
+    <string name="NOTIFICATION_TYPE">type</string>
+
+
+</resources>
