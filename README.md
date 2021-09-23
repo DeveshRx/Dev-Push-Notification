@@ -21,7 +21,7 @@ A Front UI & Backend base for push notification feature in Android App.
   
   ```
   NotiDataManager notiDataManager=new NotiDataManager(this);
-  notiDataManager.NotificationCapture(remoteMessage);`
+  notiDataManager.NotificationCapture(remoteMessage);
 
 - Subscribe to Topic in FCM with following code:
   ```
@@ -30,9 +30,9 @@ A Front UI & Backend base for push notification feature in Android App.
       notiDataManager.NotificationSubscribe("general");
       // For Unsubscribe
       // notiDataManager.NotificationUnSubscribe("general");
-      }`
+      }
 
 - Start `NotificationActivity` whenever user want to view notifications
   ```
   Intent intent=new Intent(this, NotificationActivity.class);
-  startActivity(intent);`
+  startActivity(intent);
