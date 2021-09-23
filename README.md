@@ -30,11 +30,10 @@ A Front & Backend UI base for push notification feature in Android App.
       notiDataManager.NotificationSubscribe("general");
       // For Unsubscribe
       // notiDataManager.NotificationUnSubscribe("general");
-      }
-```
+      }```
 
 - Start `NotificationActivity` whenever user want to view notifications
-`   Intent intent=new Intent(this, NotificationActivity.class);`
-`   startActivity(intent);`
+```Intent intent=new Intent(this, NotificationActivity.class);
+   startActivity(intent);```
 
 
