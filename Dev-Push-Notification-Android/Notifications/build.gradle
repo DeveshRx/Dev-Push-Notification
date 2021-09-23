@@ -90,6 +90,33 @@ dependencies {
 
 }
 
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            pom {
+                name = 'Dev-Push-Notification'
+                description = 'Push Notification for Android'
+                url = 'https://github.com/DeveshRx/Dev-Push-Notification'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://github.com/DeveshRx/Dev-Push-Notification/blob/master/LICENSE'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'DeveshRx'
+                        name = 'Devesh Chaudhari'
+                        email = 'DeveshRx@users.noreply.github.com'
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+
 
 afterEvaluate {
     publishing {
