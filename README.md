@@ -1,5 +1,7 @@
 # Dev Push Notification
 
+[![Release](https://jitpack.io/v/DeveshRx/Dev-Push-Notification.svg)](https://jitpack.io/#DeveshRx/Dev-Push-Notification)
+
 A Front UI & Backend base for push notification feature in Android App.
 
 ## Features
@@ -13,7 +15,19 @@ A Front UI & Backend base for push notification feature in Android App.
 - Setup Firebase Cloud Messaging (FCM) according to these instructions
   [https://firebase.google.com/docs/cloud-messaging/android/client](https://firebase.google.com/docs/cloud-messaging/android/client)
 
-- git clone this repo & copy `Notifications` module into your Android Project.
+-  Add the JitPack repository to your project build file
+   ```
+   allprojects {
+      repositories {
+      maven { url 'https://jitpack.io' }
+      }
+    }
+
+- Add the dependency
+  ```
+  dependencies {
+	        implementation 'com.github.DeveshRx:Dev-Push-Notification:1.0'
+	}
 
 - Create a `Service` named `MyFirebaseMessagingService.java` and extend it with `FirebaseMessagingService`.
 
