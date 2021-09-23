@@ -18,16 +18,20 @@ A Front & Backend UI base for push notification feature in Android App.
 - Create a `Service` named `MyFirebaseMessagingService.java` and extend it with `FirebaseMessagingService`.
 
 - Create `onMessageReceived` function and insert following code in it:
-  ` NotiDataManager notiDataManager=new NotiDataManager(this);` 
-  `notiDataManager.NotificationCapture(remoteMessage);`
+  
+  ```
+  NotiDataManager notiDataManager=new NotiDataManager(this);
+  notiDataManager.NotificationCapture(remoteMessage);`
 
 - Subscribe to Topic in FCM with following code:
-  `void SubscribeToTopic(){`
- ` NotiDataManager notiDataManager=new NotiDataManager(this);`
- ` notiDataManager.NotificationSubscribe("general");`
-  `// For Unsubscribe`
-  `// notiDataManager.NotificationUnSubscribe("general");`
-`}`
+  ```
+  void SubscribeToTopic(){
+      NotiDataManager notiDataManager=new NotiDataManager(this);
+      notiDataManager.NotificationSubscribe("general");
+      // For Unsubscribe
+      // notiDataManager.NotificationUnSubscribe("general");
+      }
+```
 
 - Start `NotificationActivity` whenever user want to view notifications
 `   Intent intent=new Intent(this, NotificationActivity.class);`
