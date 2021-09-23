@@ -1,6 +1,10 @@
 plugins {
     id 'com.android.library'
+    id 'maven-publish'
 }
+
+group = 'com.github.DeveshRx'
+version = '1.0.0'
 
 android {
     compileSdkVersion 31
@@ -84,4 +88,19 @@ dependencies {
     api 'com.google.firebase:firebase-analytics:+'
     api 'com.google.firebase:firebase-messaging-directboot:+'
 
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.DeveshRx'
+                artifactId = 'Dev-Push-Notificaion'
+                version = '1.0.0'
+            }
+        }
+    }
 }
