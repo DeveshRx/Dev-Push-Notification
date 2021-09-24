@@ -32,14 +32,13 @@ import com.google.firebase.messaging.RemoteMessage;
 
 
 public class NotiDataManager {
-    static final String TAG="NDM: ";
-    NotificationAppDatabase NotiDB;
-    Context mContext;
-    String AppFlavor;
+    static final private String TAG="NDM: ";
+    private NotificationAppDatabase NotiDB;
+   private Context mContext;
 
     public NotiDataManager(Context context){
-        mContext = context;
-        NotiDB = Room.databaseBuilder(context, NotificationAppDatabase.class, context.getString(R.string.DATABASE_NOTIFICATION))
+        this.mContext=context;
+        this.NotiDB = Room.databaseBuilder(context, NotificationAppDatabase.class, context.getString(R.string.DATABASE_NOTIFICATION))
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build();
@@ -85,7 +84,7 @@ public class NotiDataManager {
     }
     void NotificationShoot(NotifictionData data) {
         Intent intent = new Intent(mContext, NotificationActivity.class);
-        intent.putExtra("flavor",AppFlavor);
+      //  intent.putExtra("flavor",AppFlavor);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
 
