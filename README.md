@@ -6,7 +6,7 @@ A Front UI & Backend base for push notification feature in Android App.
 
 ## Features
 
-- Simple UI fot Notification Stack
+- Simple UI for Notification Stack
 - Fully Customizable
 - Supports FCM (Firebase Cloud Messaging)
 
