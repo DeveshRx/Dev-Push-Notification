@@ -26,7 +26,7 @@ A Front UI & Backend base for push notification feature in Android App.
 - Add the dependency
   ```
   dependencies {
-	        implementation 'com.github.DeveshRx:Dev-Push-Notification:1.0'
+	        implementation 'com.github.DeveshRx:Dev-Push-Notification:+'
 	}
 
 - Create a `Service` named `MyFirebaseMessagingService.java` and extend it with `FirebaseMessagingService`.
