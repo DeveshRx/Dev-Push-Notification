@@ -24,8 +24,8 @@ import devesh.ephrine.notifications.room.NotifictionData;
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 public class NotificationActivity extends AppCompatActivity {
-    public static final String ACTIONBAR_ELEVATION = "actionbar_elevation";
-    public static final String ACTIONBAR_COLOR = "actionbar_color";
+    //public float ACTIONBAR_ELEVATION = 0f;
+   // public int ACTIONBAR_COLOR=0 ;
   //  public static final String ACTIONBAR_TEXT_COLOR = "actionbar_text_color";
 
     NotificationAppDatabase NotiDB;
@@ -41,7 +41,7 @@ public class NotificationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
-
+     //   ACTIONBAR_COLOR = getColor(R.color.app_accent_color);
         // TODO: intent data from notification click
         /*try {
             Bundle b = getIntent().getExtras();// add these lines of code to get data from notification
@@ -52,29 +52,25 @@ public class NotificationActivity extends AppCompatActivity {
 
 
 // TODO: Custom Theme Colors
-    /*    try {
-            if (getIntent().getStringExtra(ACTIONBAR_ELEVATION) != null) {
-                String elvSTR = getIntent().getStringExtra(ACTIONBAR_ELEVATION);
-                float elv = Float.valueOf(elvSTR); //0f
-                getSupportActionBar().setElevation(elv);
-            }
+  /*      try {
+            float elv = Float.valueOf(ACTIONBAR_ELEVATION); //0f
+            getSupportActionBar().setElevation(elv);
+
         } catch (Exception e) {
             Log.e(TAG, "onCreate: ACTIONBAR_ELEVATION ERROR " + e);
         }
 
 
         try {
-            if (getIntent().getStringExtra(ACTIONBAR_COLOR) != null) {
-                String colorSTR = getIntent().getStringExtra(ACTIONBAR_COLOR);
-                int ac_color = Integer.parseInt(colorSTR);
-                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ac_color));
-            }
+            int ac_color = ACTIONBAR_COLOR;
+            getSupportActionBar().setBackgroundDrawable(new ColorDrawable(ac_color));
+
         } catch (Exception e) {
             Log.e(TAG, "onCreate: ACTIONBAR_COLOR " + e);
         }
+
+
 */
-
-
       //  Intent intent = getIntent();
       //  AppFlavor = intent.getStringExtra("flavor");
 

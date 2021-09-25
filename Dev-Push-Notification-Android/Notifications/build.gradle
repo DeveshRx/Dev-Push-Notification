@@ -3,10 +3,16 @@ plugins {
     id 'maven-publish'
 }
 
+
+def LibVersion="1.0.2"
+
 group = 'com.github.DeveshRx'
-version = '1.0.0'
+//group = 'mod.DeveshRx'
+
+version = LibVersion
 
 android {
+
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
@@ -20,7 +26,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -56,7 +62,6 @@ dependencies {
 
     // Work Manager
     def work_version = "+"
-
     // (Java only)
     api "androidx.work:work-runtime:$work_version"
     // Kotlin + coroutines
@@ -76,17 +81,12 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:+'
 
     api "androidx.browser:browser:+"
-    //Recycleview decor
-    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
 
-
-
-
-    // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
-    // When using the BoM, you don't specify versions in Firebase library dependencies
     api 'com.google.firebase:firebase-messaging:+'
     api 'com.google.firebase:firebase-analytics:+'
     api 'com.google.firebase:firebase-messaging-directboot:+'
+    //Recycleview decor
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
 
 }
 
@@ -125,8 +125,9 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.DeveshRx'
+                //groupId = 'mod.DeveshRx'
                 artifactId = 'Dev-Push-Notificaion'
-                version = '1.0.0'
+                version = LibVersion
             }
         }
     }

@@ -31,18 +31,20 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
 
-public class NotiDataManager {
+public class DevNotificationTool {
     static final private String TAG="NDM: ";
     private NotificationAppDatabase NotiDB;
    private Context mContext;
-
-    public NotiDataManager(Context context){
+public int default_icon=R.drawable.ic_notifications_white_48dp;
+    private int lib_default_icon;
+    public DevNotificationTool(Context context){
         this.mContext=context;
         this.NotiDB = Room.databaseBuilder(context, NotificationAppDatabase.class, context.getString(R.string.DATABASE_NOTIFICATION))
                 .fallbackToDestructiveMigration()
                 .allowMainThreadQueries()
                 .build();
         createNotificationChannels();
+        lib_default_icon=R.drawable.ic_notifications_white_48dp;
     }
 
     public void NotificationCapture(RemoteMessage remoteMessage){
@@ -63,7 +65,10 @@ public class NotiDataManager {
             data.Url = remoteMessage.getData().get(mContext.getString(R.string.NOTIFICATION_URL));
             data.id = Integer.parseInt(remoteMessage.getData().get(mContext.getString(R.string.NOTIFICATION_ID)));
              data.time = System.currentTimeMillis();
-            NormalNotification(data);
+
+             int IconRes=default_icon;
+
+            NormalNotification(data,IconRes);
 
 
 
@@ -76,7 +81,7 @@ public class NotiDataManager {
 
     }
 
-     void Save(NotifictionData data){
+     void Save(NotifictionData data, int IconRes){
         NotiDB.notificationDAO().insertAll(data);
 
         NotificationShoot(data);
@@ -88,8 +93,10 @@ public class NotiDataManager {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
 
+        int IconRes=default_icon;
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, mContext.getString(R.string.notification_channel_id_general))
-         //       .setSmallIcon(R.drawable.ic_notifications_white_48dp)
+               .setSmallIcon(IconRes)
                 .setContentTitle(data.Title)
                 .setContentText(data.Short_Message)
                 .setContentIntent(pendingIntent)
@@ -114,7 +121,7 @@ public class NotiDataManager {
         notificationManager.notify(noti_id, builder.build());
     }
 
-    void NormalNotification(NotifictionData data) {
+    void NormalNotification(NotifictionData data, int IconRes) {
 
         WorkRequest notiWorkRequest =
                 new OneTimeWorkRequest.Builder(NotiWorkManager.class)
@@ -132,6 +139,7 @@ public class NotiDataManager {
                                         .putString("time", String.valueOf(data.time))
                                        // .putString("flavor", BuildConfig.FLAVOR)
                                         .putString("flavor", "default")
+                                        .putInt("icontray", IconRes)
                                         .build())
                         .build();
 

@@ -99,23 +99,23 @@ public class NotiWorkManager extends Worker {
         }
         data.time=Double.valueOf(time);
 
-
+        int iconTray=getInputData().getInt("icontray",R.drawable.ic_notifications_white_48dp);
 
         NotiDB.notificationDAO().insertAll(data);
 
-        NotificationShoot(data);
+        NotificationShoot(data,iconTray);
 
         return Result.success();
     }
 
-    void NotificationShoot(NotifictionData data) {
+    void NotificationShoot(NotifictionData data, int iconTray) {
         Intent intent = new Intent(mContext, NotificationActivity.class);
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, mContext.getString(R.string.notification_channel_id_general))
-              //  .setSmallIcon(R.drawable.ic_notifications_white_48dp)
+               .setSmallIcon(iconTray)
                 .setContentTitle(data.Title)
                 .setContentText(data.Short_Message)
                 .setContentIntent(pendingIntent)

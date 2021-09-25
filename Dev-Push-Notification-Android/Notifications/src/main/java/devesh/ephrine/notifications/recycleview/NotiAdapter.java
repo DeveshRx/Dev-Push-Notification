@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 import java.util.Random;
 
+import devesh.ephrine.notifications.DevNTheme;
 import devesh.ephrine.notifications.NotificationActivity;
 import devesh.ephrine.notifications.R;
 import devesh.ephrine.notifications.room.NotifictionData;
@@ -31,11 +32,13 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.MyViewHolder> 
     private final List<NotifictionData> mDataset;
     public String TAG = "NotiAdapter";
     public Context mContext;
+    DevNTheme devNTheme;
 
     public NotiAdapter(Context Context, List<NotifictionData> myDataset) {
         mDataset = myDataset;
         mContext = Context;
         Glide.get(mContext).clearMemory();
+        devNTheme=new DevNTheme();
     }
 
 
@@ -56,7 +59,9 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.MyViewHolder> 
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         holder.nTitle.setText(mDataset.get(position).Title);
-
+if(devNTheme.Title_Color!=0){
+    holder.nTitle.setTextColor(devNTheme.Title_Color);
+}
         Spannable s = (Spannable) Html.fromHtml(mDataset.get(position).Long_Message);
         URLSpan[] spans = s.getSpans(0, s.length(), URLSpan.class);
         for (URLSpan span : spans) {
@@ -69,6 +74,10 @@ public class NotiAdapter extends RecyclerView.Adapter<NotiAdapter.MyViewHolder> 
 
         holder.nLongSummary.setText(s);
         holder.nLongSummary.setMovementMethod(LinkMovementMethod.getInstance());
+
+        if(devNTheme.Message_Color!=0){
+            holder.nLongSummary.setTextColor(devNTheme.Message_Color);
+        }
 
         if (mDataset.get(position).Url.contains("http") || mDataset.get(position).Url.contains("https")) {
             holder.CardItem.setTag(mDataset.get(position).Url);

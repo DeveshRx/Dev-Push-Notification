@@ -15,7 +15,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import devesh.ephrine.notifications.NotiDataManager;
+import devesh.ephrine.notifications.DevNTheme;
+import devesh.ephrine.notifications.DevNotificationTool;
 import devesh.ephrine.notifications.NotificationActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,12 +44,16 @@ String TAG="APP: ";
                         String msg = getString(R.string.msg_token_fmt, token);
                         Log.d(TAG, "FCM TOKEN: "+msg);
                         Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+
+                        SubscribeToTopic();
+
                     }
                 });
 
-        SubscribeToTopic();
 
-
+        DevNTheme devNTheme=new DevNTheme();
+        devNTheme.Title_Color=R.color.primaryColor;
+        devNTheme.Message_Color=R.color.purple_200;
 
 
 
@@ -58,19 +63,20 @@ String TAG="APP: ";
     public void openNotification(View v){
         Intent intent=new Intent(this, NotificationActivity.class);
 
-        intent.putExtra(NotificationActivity.ACTIONBAR_COLOR,getColor(R.color.teal_200));
-        intent.putExtra(NotificationActivity.ACTIONBAR_ELEVATION,"0f");
+      //  intent.putExtra(NotificationActivity.ACTIONBAR_COLOR,getColor(R.color.teal_200));
+      //  intent.putExtra(NotificationActivity.ACTIONBAR_ELEVATION,"0f");
 
         startActivity(intent);
 
     }
 
     void SubscribeToTopic(){
-        NotiDataManager notiDataManager=new NotiDataManager(this);
-        notiDataManager.NotificationSubscribe("general");
+        DevNotificationTool devNotificationTool =new DevNotificationTool(this);
+
+        devNotificationTool.NotificationSubscribe("general");
 
         // For Unsubscribe
-       // notiDataManager.NotificationUnSubscribe("general");
+       // devNotificationTool.NotificationUnSubscribe("general");
 
     }
 

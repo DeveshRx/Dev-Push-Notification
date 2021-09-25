@@ -24,6 +24,11 @@
             <label for="InputNID" class="form-label">Notification ID</label>
             <input type="text" class="form-control" id="InputNID" value="00000000">
         </div>
+        
+        <div class="mb-3">
+            <label for="FCMTopic" class="form-label">FCM-Topic</label>
+            <input type="text" class="form-control" id="FCMTopic" value="general">
+        </div>
         <div class="mb-3">
             <label for="InputTitle" class="form-label">Title</label>
             <input type="text" class="form-control" id="InputTitle" value="Title of Notification">
@@ -84,6 +89,7 @@
             var IconURL = document.getElementById('InputIconURL').value;
             var ImageURL = document.getElementById('InputImageURL').value;
             var nURL = document.getElementById('InputURL').value;
+            var FCMTopic=document.getElementById('FCMTopic').value;
 
             console.log({
                 NID: NID,
@@ -92,7 +98,8 @@
                 LongSummary: LongSummary,
                 IconURL: IconURL,
                 ImageURL: ImageURL,
-                nURL: nURL
+                nURL: nURL,
+                FCMTopic:FCMTopic
             });
             sendFetch({
                 NID: NID,
@@ -101,7 +108,8 @@
                 LongSummary: LongSummary,
                 IconURL: IconURL,
                 ImageURL: ImageURL,
-                nURL: nURL
+                nURL: nURL,
+                FCMTopic,FCMTopic
             });
 
         }

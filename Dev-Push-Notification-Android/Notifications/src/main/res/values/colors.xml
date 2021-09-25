@@ -23,5 +23,6 @@
 
     <color name="primaryTextColor">#ffffff</color>
     <color name="secondaryTextColor">#ffffff</color>
+    <color name="Black">#000000</color>
 
 </resources>

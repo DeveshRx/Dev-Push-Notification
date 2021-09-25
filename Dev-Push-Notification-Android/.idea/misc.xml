@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android_Development/GitHub/Dev-Push-Notification/Dev-Push-Notification-Android/Notifications/src/main/res/layout/activity_notification.xml" value="0.19886363636363635" />
+        <entry key="..\:/Android_Development/GitHub/Dev-Push-Notification/Dev-Push-Notification-Android/Notifications/src/main/res/layout/recycleview_item.xml" value="0.16847826086956522" />
         <entry key="..\:/Android_Development/Lab/PushNotification/Notifications/src/main/res/layout/recycleview_item.xml" value="0.11594202898550725" />
         <entry key="..\:/Android_Development/Lab/PushNotification/sample/src/main/res/layout/activity_main.xml" value="0.11594202898550725" />
       </map>

@@ -52,8 +52,10 @@ app.post("/SendNotification", (req, res) => {
   var IconURL = postBody.IconURL;
   var ImageURL = postBody.ImageURL;
   var nURL = postBody.nURL;
+  var FCMTopic=postBody.FCMTopic;
 
-  var topic = "general";
+ // var topic = "general";
+ var topic =FCMTopic;
   //FCM
 /*
   android: {

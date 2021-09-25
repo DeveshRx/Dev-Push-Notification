@@ -1,14 +1,11 @@
 package devesh.ephrine;
 
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import devesh.ephrine.notifications.NotiDataManager;
+import devesh.ephrine.notifications.DevNotificationTool;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     public static String TAG="FMS: ";
@@ -43,8 +40,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
         }
 
-        NotiDataManager notiDataManager=new NotiDataManager(this);
-        notiDataManager.NotificationCapture(remoteMessage);
+        DevNotificationTool devNotificationTool =new DevNotificationTool(this);
+        devNotificationTool.default_icon=R.drawable.ic_baseline_adb_24;
+        devNotificationTool.NotificationCapture(remoteMessage);
 
     }
 
