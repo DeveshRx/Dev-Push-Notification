@@ -34,14 +34,14 @@ A Front UI & Backend base for push notification feature in Android App.
 - Create `onMessageReceived` function and insert following code in it:
   
   ```
-  NotiDataManager notiDataManager=new NotiDataManager(this);
-  notiDataManager.NotificationCapture(remoteMessage);
+  DevNotificationTool devNotificationTool=new DevNotificationTool(this);
+  devNotificationTool.NotificationCapture(remoteMessage);
 
 - Subscribe to Topic in FCM with following code:
   ```
   void SubscribeToTopic(){
-      NotiDataManager notiDataManager=new NotiDataManager(this);
-      notiDataManager.NotificationSubscribe("general");
+      DevNotificationTool devNotificationTool=new DevNotificationTool(this);
+      devNotificationTool.NotificationSubscribe("general");
       // For Unsubscribe
       // notiDataManager.NotificationUnSubscribe("general");
       }
